@@ -1,0 +1,27 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <script>
+
+        window.addEventListener("message", function (event) {
+            //console.log("A nhận được", event);
+            //Nếu iframe postMessage có dữ liệu dạng {type:'embed-size',height:'document.body.scrollHeight',href: window.location.href}
+            if (typeof (event.data) === 'object'
+                && event.data.type === "embed-size"
+                && typeof (event.data.href) == "string"
+                && event.data.href.length > 0) {
+                //tìm đến các iframe có src = event.data.href bao gồm cả src tương đối và tuyệt đối 
+                document.querySelectorAll('iframe[src="' + event.data.href + '"],iframe[src="' + event.data.href.slice(location.origin.length) + '"]').forEach(function (o) {
+                    o.style.height = event.data.height + "px";//set lại chiều cao của iframe
+                });
+                console.log(event.data.href,event.data.href);
+            }
+        }, false);
+
+    </script>
+</head>
+<body>
+    <p>Chiều cao iframe tự động được resize lại theo nội dung trong iframe</p> 
+    <iframe src="/iframe.htm" height="200"></iframe>
+</body>
+</html>
