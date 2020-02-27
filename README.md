@@ -2,7 +2,7 @@
 Ví dụ về tự động thay đổi chiều cao embed iframe theo nội dung iframe cross domain
 
 Trong parent.htm
-[code]
+ ```
 <html>
 <head>
     <meta charset="utf-8">
@@ -30,9 +30,9 @@ Trong parent.htm
     <iframe src="/iframe.htm" height="200"></iframe>
 </body>
 </html>
-[/code]
+ ```
    Trong iframe.htm
-[code]
+ ```
 <html>
 <head>
     <meta charset="utf-8">
@@ -60,4 +60,4 @@ Trong parent.htm
     </div>
 </body>
 </html>
-[/code]
+ ```
